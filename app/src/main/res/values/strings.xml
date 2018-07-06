@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">MatchSampleApp</string>
+
+    <string name="github_repositories">Github Repositories</string>
+    <string name="description">Description: %s</string>
+    <string name="owner">Owner: %s</string>
+    <string name="url">URL: %s</string>
+    <string name="created_at">Created At: %s</string>
+    <string name="updated_at">Updated At: %s</string>
+    <string name="language">Language: %s</string>
+    <string name="forks_count">Forks Count: %s</string>
+    <string name="open_issues_count">Open Issues Count: %s</string>
+
+</resources>

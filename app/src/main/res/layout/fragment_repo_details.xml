@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable name="repository" type="com.matchapp.rashmi.matchsample.model.Repo" />
+    </data>
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/activity_vertical_margin">
+
+        <ImageView
+            android:id="@+id/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/repo_name"
+            app:imageUrl="@{repository.owner.avatar_url}" />
+
+        <TextView
+            android:id="@+id/repo_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="20dp"
+            android:text="@{repository.name}"
+            android:textSize="@dimen/title_text"
+            android:textStyle="bold"
+            app:layout_constraintTop_toBottomOf="@+id/avatar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/repo_owner"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/owner, repository.owner.login)}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/repo_name"
+            app:layout_constraintHorizontal_bias="0"/>
+
+        <TextView
+            android:id="@+id/repo_description"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/description, repository.description)}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/repo_owner"/>
+
+        <TextView
+            android:id="@+id/repo_url"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/url, repository.url)}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/repo_description"/>
+
+        <TextView
+            android:id="@+id/repo_created_at"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/created_at, repository.created_at)}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/repo_url"/>
+
+        <TextView
+            android:id="@+id/repo_updated_at"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/updated_at, repository.updated_at)}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/repo_created_at"/>
+
+        <TextView
+            android:id="@+id/language"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/language, repository.language)}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/repo_updated_at"/>
+
+        <TextView
+            android:id="@+id/forks_count"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/forks_count, Integer.toString(repository.forks))}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/language"/>
+
+        <TextView
+            android:id="@+id/open_issues"
+            style="@style/DetailsTextStyle"
+            android:text="@{String.format(@string/open_issues_count, Integer.toString(repository.open_issues))}"
+            app:layout_constraintStart_toStartOf="@+id/repo_owner"
+            app:layout_constraintTop_toBottomOf="@+id/forks_count"/>
+
+    </android.support.constraint.ConstraintLayout>
+
+</layout>
